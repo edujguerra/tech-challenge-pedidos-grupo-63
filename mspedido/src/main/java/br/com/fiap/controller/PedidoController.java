@@ -18,6 +18,10 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
+    public PedidoController(PedidoService pedidoService) {
+        this.pedidoService = pedidoService;
+    }
+
     @PostMapping
     public ResponseEntity<?> criarPedido(@RequestBody Pedido pedido) {
         try {

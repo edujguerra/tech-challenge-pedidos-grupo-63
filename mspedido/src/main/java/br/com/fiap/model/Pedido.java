@@ -2,11 +2,15 @@ package br.com.fiap.model;
 
 import br.com.fiap.model.Enum.StatusPedidoEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Pedido {
 
@@ -20,9 +24,6 @@ public class Pedido {
     private double valorTotal;
     @Enumerated(EnumType.STRING)
     private StatusPedidoEnum status;
-//    @OneToOne
-//    @JoinColumn(name = "entregador_id")
-//    private Entregador entregador;
     @Column(name = "entregador_id")
     private Integer entregadorId;
 }

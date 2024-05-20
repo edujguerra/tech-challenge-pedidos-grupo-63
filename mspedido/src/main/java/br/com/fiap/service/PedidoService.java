@@ -31,6 +31,12 @@ public class PedidoService {
     private static final String RETIRAR_ESTOQUE = "retirar";
     private static final String INSERIR_ESTOQUE = "inserir";
 
+    public PedidoService(PedidoRepository pedidoRepository, RestTemplate restTemplate, ObjectMapper objectMapper) {
+        this.pedidoRepository = pedidoRepository;
+        this.restTemplate = restTemplate;
+        this.objectMapper = objectMapper;
+    }
+
     public List<Pedido> listarPedidos() {
         return pedidoRepository.findAll();
     }
