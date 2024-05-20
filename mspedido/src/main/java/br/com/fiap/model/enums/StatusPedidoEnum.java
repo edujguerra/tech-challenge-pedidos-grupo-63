@@ -1,4 +1,4 @@
-package br.com.fiap.model.Enum;
+package br.com.fiap.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

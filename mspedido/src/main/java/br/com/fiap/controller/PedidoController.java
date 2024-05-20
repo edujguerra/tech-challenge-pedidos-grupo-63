@@ -1,6 +1,6 @@
 package br.com.fiap.controller;
 
-import br.com.fiap.model.Enum.StatusPedidoEnum;
+import br.com.fiap.model.enums.StatusPedidoEnum;
 import br.com.fiap.model.Pedido;
 import br.com.fiap.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;

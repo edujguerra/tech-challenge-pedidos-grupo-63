@@ -1,6 +1,6 @@
 package br.com.fiap.model;
 
-import br.com.fiap.model.Enum.StatusPedidoEnum;
+import br.com.fiap.model.enums.StatusPedidoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

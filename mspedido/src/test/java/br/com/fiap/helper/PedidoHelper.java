@@ -1,6 +1,6 @@
 package br.com.fiap.helper;
 
-import br.com.fiap.model.Enum.StatusPedidoEnum;
+import br.com.fiap.model.enums.StatusPedidoEnum;
 import br.com.fiap.model.ItemPedido;
 import br.com.fiap.model.Pedido;
 import br.com.fiap.model.dtos.ProdutoDTO;
