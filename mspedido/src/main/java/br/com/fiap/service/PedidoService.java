@@ -115,7 +115,8 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             ResponseEntity<String> response = restTemplate.getForEntity(
-                    "http://localhost:8082/api/produtos/{produtoId}",
+                    "http://msprodutos:8082/api/produtos/{produtoId}",
+//                    "http://localhost:8082/api/produtos/{produtoId}",
                     String.class,
                     idProduto
             );
@@ -146,7 +147,8 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             ResponseEntity<String> response = restTemplate.getForEntity(
-                    "http://localhost:8082/api/produtos/{idProduto}",
+                    "http://msprodutos:8082/api/produtos/{idProduto}",
+//                    "http://localhost:8082/api/produtos/{idProduto}",
                     String.class,
                     idProduto
             );
@@ -170,7 +172,8 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             restTemplate.put(
-                    "http://localhost:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
+                    "http://msprodutos:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
+//                    "http://localhost:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
                     null,
                     idProduto,
                     quantidade,
