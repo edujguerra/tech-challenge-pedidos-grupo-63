@@ -1,6 +1,6 @@
 package br.com.fiap.service;
 
-import br.com.fiap.model.enums.StatusPedidoEnum;
+import br.com.fiap.model.Enum.StatusPedidoEnum;
 import br.com.fiap.model.ItemPedido;
 import br.com.fiap.model.Pedido;
 import br.com.fiap.repository.PedidoRepository;
@@ -88,12 +88,12 @@ public class PedidoService {
         }
     }
 
-    public Pedido atualizarStatus(Integer pedidoId, StatusPedidoEnum status) {
-
+    public Pedido atualizarStatus(Integer pedidoId, String status) {
         Pedido pedido = pedidoRepository.findById(pedidoId).orElse(null);
+        StatusPedidoEnum statusPedidoEnum = StatusPedidoEnum.obterStatusPorNomeOuStringEnum(status);
 
         if (pedido != null) {
-            pedido.setStatus(status);
+            pedido.setStatus(statusPedidoEnum);
             pedidoRepository.save(pedido);
         } else {
             throw new NoSuchElementException("Pedido com código {} não encontrado" + pedidoId);
@@ -121,8 +121,7 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             ResponseEntity<String> response = restTemplate.getForEntity(
-                    "http://msprodutos:8082/api/produtos/{produtoId}",
-//                    "http://localhost:8082/api/produtos/{produtoId}",
+                    "http://localhost:8082/api/produtos/{produtoId}",
                     String.class,
                     idProduto
             );
@@ -153,8 +152,7 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             ResponseEntity<String> response = restTemplate.getForEntity(
-                    "http://msprodutos:8082/api/produtos/{idProduto}",
-//                    "http://localhost:8082/api/produtos/{idProduto}",
+                    "http://localhost:8082/api/produtos/{idProduto}",
                     String.class,
                     idProduto
             );
@@ -178,8 +176,7 @@ public class PedidoService {
             int quantidade = itemPedido.getQuantidade();
 
             restTemplate.put(
-                    "http://msprodutos:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
-//                    "http://localhost:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
+                    "http://localhost:8082/api/produtos/atualizar/estoque/{idProduto}/{quantidade}/{entradaSaida}",
                     null,
                     idProduto,
                     quantidade,

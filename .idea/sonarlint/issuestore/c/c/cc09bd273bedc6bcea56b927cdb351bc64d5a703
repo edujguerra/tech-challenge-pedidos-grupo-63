@@ -1,8 +1,0 @@
-
-`	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(µˆ´–úÿÿÿÿ
-o
-java:S2293%"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô¦¸ë
-m
-java:S1192="WDefine a constant instead of duplicating this literal "Produto nao encontrado" 3 times.(»ïû³
-E	java:S106'"+Replace this use of System.out by a logger.(ö²·¸þÿÿÿÿ
-V	java:S125/"<This block of commented-out lines of code should be removed.(ãì¸ þÿÿÿÿ

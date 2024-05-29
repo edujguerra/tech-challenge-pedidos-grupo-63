@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
     <field name="pedido_id" class="java.lang.Long"/>
-    <field name="pedido_statusEntrega" class="java.lang.String"/>
-    <field name="pedido_previsaoEntrega" class="java.time.LocalDateTime"/>
-    <field name="nomeEntregador" class="java.lang.String"/>
+    <field name="cpfCliente" class="java.lang.String"/>
+    <field name="nomeCliente" class="java.lang.String"/>
+    <field name="cep" class="java.lang.String"/>
+
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Relatório]]></text>
+            </staticText>
+        </band>
+    </title>
+
+
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="100" height="20"/>
+                <text><![CDATA[CPF Cliente]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="250" height="20"/>
+                <text><![CDATA[Nome Cliente]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="450" y="0" width="100" height="20"/>
+                <text><![CDATA[CEP]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
 
     <detail>
         <band height="20">
@@ -15,17 +49,17 @@
             <textField>
                 <reportElement x="100" y="0" width="100" height="20"/>
                 <textElement/>
-                <textFieldExpression><![CDATA[$F{pedido_statusEntrega}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{cpfCliente}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="200" y="0" width="100" height="20"/>
+                <reportElement x="200" y="0" width="250" height="20"/>
                 <textElement/>
-                <textFieldExpression><![CDATA[$F{nomeEntregador}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{nomeCliente}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement x="300" y="0" width="200" height="20"/>
+                        <textField>
+                <reportElement x="450" y="0" width="100" height="20"/>
                 <textElement/>
-                <textFieldExpression><![CDATA[$F{pedido_previsaoEntrega}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

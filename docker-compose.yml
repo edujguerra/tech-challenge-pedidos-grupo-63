@@ -60,13 +60,22 @@ services:
     networks:
       - minha-rede
 
-  mslogisticas:
-    container_name: mslogisticas
+  mslogistica:
+    container_name: mslogistica
     build:
       context: /mslogistica
       dockerfile: Dockerfile
     ports:
       - '8084:8084'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://dblogistica:3306/logistica?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123456  
+    depends_on:
+      - mspedidos
+      - dblogistica
+    volumes:
+      - mslogistica:/app/relatorios/
     networks:
       - minha-rede
 
@@ -120,6 +129,19 @@ services:
     networks:
       - minha-rede
 
+  dblogistica:
+    container_name: dblogistica
+    image: mysql:5.7
+    ports:
+      - '3309:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: logistica
+    volumes:
+      - db_logistica:/var/lib/mysql
+    networks:
+      - minha-rede
+
 networks:
   minha-rede:
     driver: bridge
@@ -128,3 +150,5 @@ volumes:
   db_client:
   db_produto:
   db_pedido:
+  db_logistica:
+  mslogistica:
